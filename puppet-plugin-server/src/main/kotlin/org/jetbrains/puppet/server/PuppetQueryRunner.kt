@@ -1,13 +1,13 @@
-package org.jetbrains.puppet.executor
+package org.jetbrains.puppet.server
 
 import jetbrains.buildServer.serverSide.PropertiesProcessor
 import jetbrains.buildServer.serverSide.RunType
 import jetbrains.buildServer.serverSide.RunTypeRegistry
 import jetbrains.buildServer.web.openapi.PluginDescriptor
-import org.jetbrains.PUPPET_EXECUTOR_JSP_FILE
-import org.jetbrains.PUPPET_EXECUTOR_TYPE
+import org.jetbrains.puppet.common.PUPPET_QUERY_RUNNER_JSP_FILE
+import org.jetbrains.puppet.common.PUPPET_QUERY_RUNNER_TYPE
 
-public class PuppetExecutor(val runTypeRegistry: RunTypeRegistry, val pluginDescriptor: PluginDescriptor) : RunType() {
+public class PuppetQueryRunner(val runTypeRegistry: RunTypeRegistry, val pluginDescriptor: PluginDescriptor) : RunType() {
     init {
         runTypeRegistry.registerRunType(this)
     }
@@ -22,7 +22,7 @@ public class PuppetExecutor(val runTypeRegistry: RunTypeRegistry, val pluginDesc
     }
 
     override fun getEditRunnerParamsJspFilePath(): String? {
-        return pluginDescriptor.getPluginResourcesPath(PUPPET_EXECUTOR_JSP_FILE)
+        return pluginDescriptor.getPluginResourcesPath(PUPPET_QUERY_RUNNER_JSP_FILE)
     }
 
     override fun getRunnerPropertiesProcessor(): PropertiesProcessor? {
@@ -31,15 +31,15 @@ public class PuppetExecutor(val runTypeRegistry: RunTypeRegistry, val pluginDesc
     }
 
     override fun getDisplayName(): String {
-        return "Puppet Executor"
+        return "Puppet Query"
     }
 
     override fun getType(): String {
-        return PUPPET_EXECUTOR_TYPE
+        return PUPPET_QUERY_RUNNER_TYPE
     }
 
     override fun getDescription(): String {
-        return "Execute Puppet Commands given a query"
+        return "Run a Puppet Query returning a list of nodes"
     }
 
 }
