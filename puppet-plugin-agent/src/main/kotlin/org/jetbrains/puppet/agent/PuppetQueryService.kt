@@ -21,7 +21,7 @@ public class PuppetQueryService: BuildServiceAdapter() {
         clBuilder.setEnvVariables(getRunnerContext().getBuildParameters().getEnvironmentVariables())
         clBuilder.setJvmArgs(JavaRunnerUtil.extractJvmArgs(getRunnerParameters()))
         //clBuilder.setMainClass("org.jetbrains.puppet.agent.PuppetQuery")
-        clBuilder.setMainClass("org.jetbrains.puppet.agent.TC")
+        clBuilder.setMainClass("org.jetbrains.puppet.agent.PuppetQuery")
 
 
         return clBuilder.build()
