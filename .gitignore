@@ -1,0 +1,9 @@
+out/*
+~$*
+.idea/workspace.xml
+.DS_Store/*
+.DS_Store
+lib/kotlin-runtime.jar
+build/
+.gradle/
+gradle.properties
